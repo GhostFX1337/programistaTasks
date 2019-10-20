@@ -1,0 +1,36 @@
+Explanation:
+
+To create the program in question we have to set several variables:
+
+- one for the number of days, it should be a number
+
+- one for the number of leaves (it must be an array of numbers)
+
+- one to successfully check if the leaves of each plant is within the established range
+
+- one for the end output result
+
+First I use a loop which goes through the entire plants array and checks if each number is within 0 and 10000.
+If this condition is met the params variable should be equal to true (boolean check).
+
+Next I make a separate loop nested within an if statement which includes the other two requiremens:
+
+- days must be between 1 and 100 
+
+- the total number of plants must be between 1 and 10
+
+The loop will repeat itself once for each day of harvest
+
+Next, we create an internal variable valid only within the scope of the loop theMostFruitfulPlant which will
+be equal to the largest number within the plants array devided by two and rounded down as specified.
+
+We then add this to the end result output variable.
+
+Next we need to create a new variable largestNumberIndex which will show us the index position of the largest number at that time before we increment 2 leaves to each plant. 
+
+Once this is done we subtract the value of theMostFruitfulPlant from the largestNumberIndex variable as we have taken leaves away from the plant.
+
+Lastly, we use a nested loop which goes through the entire plants array and increments 2 leaves to each plant.
+
+I added two checks which will show an error in case the days are not within the allowed range or the leaves are not within the allowed range.
+
