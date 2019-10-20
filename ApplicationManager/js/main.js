@@ -9,7 +9,7 @@ $(".revealSubmissions").on("click", function(){
 
 //create empty array
 var data = [];
-
+var newSubmission = {};
 //create variable and get value for each input 
 document.getElementById("btnInsert").addEventListener("click", function() { 
     var firstNameVal = document.getElementById('firstName').value; 
@@ -30,9 +30,9 @@ document.getElementById("btnInsert").addEventListener("click", function() {
     }
     
     if(firstNameVal && surnameVal && emailVal && ageVal && gsmVal && choiceVal && englishVal && dateVal && skillsVal && motivationVal){ 
-        //create object
-        let newSubmission = {
-        firstName: firstNameVal,
+        //push into object
+        newSubmission = {   
+        firstName: firstNameVal.toString(''),
         surname: surnameVal,
         email: emailVal,
         age: ageVal,
@@ -80,44 +80,85 @@ function createTableRow() {
     cell10.innerHTML = data[data.length -1].skillsandCourses;
     cell11.innerHTML = data[data.length -1].motivationalLetter;
     cell12.innerHTML = data[data.length -1].homeStudy;
-    cell13.innerHTML = '<button id="btnEdit" onclick="editSubmission(' + (data.length - 1) + ') " class="sbtButton">Edit</button> <button id="btnSave" onclick="saveEditedSubmission(' + (data.length - 1) + ')" id="btnSave" class="sbtButton" style="display:none;">Save</button> <button id="btnCancel" onclick="cancelAction()" id="btnCancel" class="sbtButton" style="display:none; margin-top:1em;">Cancel</button> ';
-    cell14.innerHTML = '<button id="btnDelete" onclick="deleteSubmission(' + (data.length - 1) + ') " class="sbtButton">Delete</button>';  
+    cell13.innerHTML = '<button id="btnEdit" onclick="editSubmission(' + data.length  + ') " class="sbtButton">Edit</button> <button id="btnSave" onclick="saveEditedSubmission(' + data.length + ')" id="btnSave" class="sbtButton" style="display:none;">Save</button> <button id="btnCancel" onclick="cancelAction()" id="btnCancel" class="sbtButton" style="display:none; margin-top:1em;">Cancel</button> ';
+    cell14.innerHTML = '<button id="btnDelete" onclick="deleteSubmission(' + data.length  + ') " class="sbtButton">Delete</button>';  
 };
 
-function editSubmission() {
+function editSubmission(rowNumber) {  
     var tableEdit = document.getElementById('displayInfo');
-    tableEdit.rows[data.length].cells[1].innerHTML = '<input id="firstName" type="text" name="firstName" placeholder="Enter your name here:" required>';
-    tableEdit.rows[data.length].cells[2].innerHTML = '<input id="surname" type="text" name="surname" placeholder="Enter your surname here:" required>';
-    tableEdit.rows[data.length].cells[3].innerHTML = '<input id="email" name="email" type="text" placeholder="Enter your email address here:" required>';
-    tableEdit.rows[data.length].cells[4].innerHTML = '<input id="age" type="number" name="age" min="18" max="99" placeholder="Your age:" required>';
-    tableEdit.rows[data.length].cells[5].innerHTML = '<input id="gsm" type="text" name="phoneNumber" placeholder="Enter your phone number here:" required>';
-    tableEdit.rows[data.length].cells[6].innerHTML = '<input id="choice" type="radio" name="communication" value="phone"><strong>via phone</strong> <br> <input id="choice" type="radio" name="communication" value="mail"><strong>via email</strong>';
-    tableEdit.rows[data.length].cells[7].innerHTML = '<select id="englishLevel" class="selectLanguage" name="englishLevel" required> <option value="">Please choose</option> <option value="A1">A1</option> <option value="A2">A2</option> <option value="B1">B1</option> <option value="B2">B2</option> <option value="C1">C1</option> <option value="C2">C2</option>';
-    tableEdit.rows[data.length].cells[8].innerHTML = '<input id="beginDate" type="date" name="startDate" required>';
-    tableEdit.rows[data.length].cells[9].innerHTML = '<input id="skillsContent" class="textSkills" type="text" name="skillsCourses" minlength="10" maxlength="50" required>';
-    tableEdit.rows[data.length].cells[10].innerHTML = '<input id="motivationLet" class="textMotivate" type="text" name="joinReason" minlength="10" maxlength="50" required>';
-    tableEdit.rows[data.length].cells[11].innerHTML = '<input id="studyHome" class="homeStudyBox" type="checkbox" name="confirmStudyFromHome">';
-    tableEdit.rows[data.length].cells[12].innerHTML = '<button id="btnEdit" onclick="editSubmission() " class="sbtButton" style="display:none;">Edit</button> <button id="btnSave" onclick="saveEditedSubmission(' + (data.length - 1) + ')" id="btnSave" class="sbtButton" style="display:inline;">Save</button> <button id="btnCancel" onclick="cancelAction()" id="btnCancel" class="sbtButton" style="display:inline;" margin-top:1em;">Cancel</button> '
-    tableEdit.rows[data.length].cells[13].innerHTML = '<button id="btnDelete" onclick="deleteSubmission(' + (data.length - 1) + ') " class="sbtButton" style="display:none;">Delete</button>';
+    tableEdit.rows[rowNumber].cells[1].innerHTML = '<input id="firstName" type="text" name="firstName" placeholder="Enter your name here:" required>';
+    tableEdit.rows[rowNumber].cells[2].innerHTML = '<input id="surname" type="text" name="surname" placeholder="Enter your surname here:" required>';
+    tableEdit.rows[rowNumber].cells[3].innerHTML = '<input id="email" name="email" type="text" placeholder="Enter your email address here:" required>';
+    tableEdit.rows[rowNumber].cells[4].innerHTML = '<input id="age" type="number" name="age" min="18" max="99" placeholder="Your age:" required>';
+    tableEdit.rows[rowNumber].cells[5].innerHTML = '<input id="gsm" type="text" name="phoneNumber" placeholder="Enter your phone number here:" required>';
+    tableEdit.rows[rowNumber].cells[6].innerHTML = '<input id="choice" type="radio" name="communication" value="phone"><strong>via phone</strong> <br> <input id="choice" type="radio" name="communication" value="mail"><strong>via email</strong>';
+    tableEdit.rows[rowNumber].cells[7].innerHTML = '<select id="englishLevel" class="selectLanguage" name="englishLevel" required> <option value="">Please choose</option> <option value="A1">A1</option> <option value="A2">A2</option> <option value="B1">B1</option> <option value="B2">B2</option> <option value="C1">C1</option> <option value="C2">C2</option>';
+    tableEdit.rows[rowNumber].cells[8].innerHTML = '<input id="beginDate" type="date" name="startDate" required>';
+    tableEdit.rows[rowNumber].cells[9].innerHTML = '<input id="skillsContent" class="textSkills" type="text" name="skillsCourses" minlength="10" maxlength="50" required>';
+    tableEdit.rows[rowNumber].cells[10].innerHTML = '<input id="motivationLet" class="textMotivate" type="text" name="joinReason" minlength="10" maxlength="50" required>';
+    tableEdit.rows[rowNumber].cells[11].innerHTML = '<input id="studyHome" class="homeStudyBox" type="checkbox" name="confirmStudyFromHome">';
+    tableEdit.rows[rowNumber].cells[12].innerHTML = '<button id="btnEdit" onclick="editSubmission() " class="sbtButton" style="display:none;">Edit</button> <button id="btnSave" onclick="saveEditedSubmission(' + rowNumber + ')" id="btnSave" class="sbtButton" style="display:inline;">Save</button> <button id="btnCancel" onclick="cancelAction(' + rowNumber + ')" id="btnCancel" class="sbtButton" style="display:inline;" margin-top:2em;">Cancel</button> '
+    tableEdit.rows[rowNumber].cells[13].innerHTML = '<button id="btnDelete" onclick="deleteSubmission(' + data.length + ') " class="sbtButton" style="display:none;">Delete</button>';
 }
 
-function cancelAction() {
+function cancelAction(rowNumber) {
     var tableEdit = document.getElementById('displayInfo');
-    tableEdit.rows[data.length].cells[1].innerHTML = data[data.length -1].firstName;
-    tableEdit.rows[data.length].cells[2].innerHTML = data[data.length -1].surname;
-    tableEdit.rows[data.length].cells[3].innerHTML = data[data.length -1].email;
-    tableEdit.rows[data.length].cells[4].innerHTML = data[data.length -1].age;
-    tableEdit.rows[data.length].cells[5].innerHTML = data[data.length -1].phoneNumber;
-    tableEdit.rows[data.length].cells[6].innerHTML = data[data.length -1].choice;
-    tableEdit.rows[data.length].cells[7].innerHTML = data[data.length -1].englishLevel;
-    tableEdit.rows[data.length].cells[8].innerHTML = data[data.length -1].startDate;
-    tableEdit.rows[data.length].cells[9].innerHTML = data[data.length -1].skillsandCourses;
-    tableEdit.rows[data.length].cells[10].innerHTML = data[data.length -1].motivationalLetter;
-    tableEdit.rows[data.length].cells[11].innerHTML = data[data.length -1].homeStudy;
-    tableEdit.rows[data.length].cells[12].innerHTML = '<button id="btnEdit" onclick="editSubmission(' + (data.length - 1) + ') " class="sbtButton" style="display:inline;">Edit</button> <button id="btnSave" onclick="saveEditedSubmission(' + (data.length - 1) + ')" id="btnSave" class="sbtButton" style="display:none;">Save</button> <button id="btnCancel" onclick="cancelAction()" id="btnCancel" class="sbtButton" style="display:none"; margin-top:1em;">Cancel</button> '
-    tableEdit.rows[data.length].cells[13].innerHTML = '<button id="btnDelete" onclick="deleteSubmission(' + (data.length - 1) + ') " class="sbtButton" style="display:inline;">Delete</button>';
+    tableEdit.rows[rowNumber].cells[1].innerHTML = data[data.length -1].firstName;
+    tableEdit.rows[rowNumber].cells[2].innerHTML = data[data.length -1].surname;
+    tableEdit.rows[rowNumber].cells[3].innerHTML = data[data.length -1].email;
+    tableEdit.rows[rowNumber].cells[4].innerHTML = data[data.length -1].age;
+    tableEdit.rows[rowNumber].cells[5].innerHTML = data[data.length -1].phoneNumber;
+    tableEdit.rows[rowNumber].cells[6].innerHTML = data[data.length -1].choice;
+    tableEdit.rows[rowNumber].cells[7].innerHTML = data[data.length -1].englishLevel;
+    tableEdit.rows[rowNumber].cells[8].innerHTML = data[data.length -1].startDate;
+    tableEdit.rows[rowNumber].cells[9].innerHTML = data[data.length -1].skillsandCourses;
+    tableEdit.rows[rowNumber].cells[10].innerHTML = data[data.length -1].motivationalLetter;
+    tableEdit.rows[rowNumber].cells[11].innerHTML = data[data.length -1].homeStudy;
+    tableEdit.rows[rowNumber].cells[12].innerHTML = '<button id="btnEdit" onclick="editSubmission(' + (data.length - 1) + ') " class="sbtButton" style="display:inline;">Edit</button> <button id="btnSave" onclick="saveEditedSubmission(' + (data.length - 1) + ')" id="btnSave" class="sbtButton" style="display:none;">Save</button> <button id="btnCancel" onclick="cancelAction()" id="btnCancel" class="sbtButton" style="display:none"; margin-top:1em;">Cancel</button> '
+    tableEdit.rows[rowNumber].cells[13].innerHTML = '<button id="btnDelete" onclick="deleteSubmission(' + (data.length - 1) + ') " class="sbtButton" style="display:inline;">Delete</button>';
 }
 
-// function saveEditetSubmission (){
+function saveEditedSubmission (rowNumber){
+    var firstNameVal = document.getElementById('firstName').value; 
+    var surnameVal = document.getElementById('surname').value;
+    var emailVal = document.getElementById('email').value;
+    var ageVal = document.getElementById('age').value;
+    var gsmVal = document.getElementById('gsm').value;
+    var choiceVal = document.getElementById('choice').value;
+    var englishVal = document.getElementById('englishLevel').value;
+    var dateVal = document.getElementById('beginDate').value;
+    var skillsVal = document.getElementById('skillsContent').value;
+    var motivationVal = document.getElementById('motivationLet').value;
+    var studyFromHome = '';
+    if(document.getElementById('studyHome').checked){
+        studyFromHome = 'Yes'
+    } else {
+        studyFromHome = 'No'
+    }
+    if(firstNameVal && surnameVal && emailVal && ageVal && gsmVal && choiceVal && englishVal && dateVal && skillsVal && motivationVal){ 
+        //push into object
+        newSubmission = {   
+        firstName: firstNameVal.toString(''),
+        surname: surnameVal,
+        email: emailVal,
+        age: ageVal,
+        phoneNumber: gsmVal,
+        choice: choiceVal,
+        englishLevel: englishVal,
+        startDate: dateVal,
+        skillsandCourses: skillsVal,
+        motivationalLetter: motivationVal,
+        homeStudy: studyFromHome 
+        }
+        //splice existing object from array
+        data.splice(rowNumber, 1)
+        //splice udpated object in previous object place
+        data.splice(rowNumber, 1, newSubmission);
+        //add submission to browse section
+    }
+}; 
+
+
+// function deleteSubmission() {
 
 // }

@@ -1,0 +1,15 @@
+Setup Guide:
+
+This is a simple web applicationw made with the below technologies:
+
+- HTML
+- CSS
+- vanilla JavaScript
+- jQuery (CDN in index.html)
+- Google Fonts (CDN in index.html)
+
+Information is temporary stored into a array and it will be reset upon refresh. 
+
+No additional setup is required.
+
+No packages need to be installed, simply run this application via browser. 
