@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <title>Home Page</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the HomePage!</h1>
+        <div>
+            <p>You can submit your student application below:</p>
+            <a class="revealForm" href="#applicationForm">Apply now!</a>
+        </div>
+                                        <!-- ///////////////FORM//////////////////// -->
+        <div class="hiddenForm">
+                <div id="applicationForm">
+                        <h1>Please, fill out your application request below:</h1>
+                </div>
+            <fieldset>
+                <div>
+                    <label class="reposLabel" for="firstName"><strong>First Name:</strong></label>
+                    <input id="firstName" type="text" name="firstName" placeholder="Enter your name here:" required>
+                </div>
+                <div>
+                    <label class="reposLabel" for="surname"><strong>Surname:</strong></label>
+                    <input id="surname" type="text" name="surname" placeholder="Enter your surname here:" required>
+                </div>
+                <div>
+                     <label class="reposLabel" for="email"><strong>Email:</strong></label>
+                    <input  id="email" name="email" type="text" placeholder="Enter your email address here:" required>
+                </div>
+                <div>
+                    <label class="reposLabel" for="age"><strong>Enter Your Age:</strong></label>
+                    <input id="age" type="number" name="age" min="18" max="99" placeholder="Your age:" required>
+                </div>
+                <div>
+                    <label class="reposLabel" for="phoneNumber"><strong>Phone Number:</strong></label> 
+                    <input id="gsm" type="text" name="phoneNumber" placeholder="Enter your phone number here:" required>
+                </div>
+                <div>
+                    <label class="reposLabel" for="communicationPreference"><strong>Your Preferred Way Of Correspondence:</strong></label>
+                    <input id="choice" type="radio" name="communication" value="phone"><strong>via phone</strong> 
+                    <input id="choice" type="radio" name="communication" value="mail"><strong>via email</strong> 
+                </div>
+                <div>
+                    <label class="reposLabel" for="englishLevel"><strong>English Level:</strong></label>
+                    <select id="englishLevel" class="selectLanguage" name="englishLevel" required>
+                        <option value="">Please choose</option>
+                        <option value="A1">A1</option>
+                        <option value="A2">A2</option>
+                        <option value="B1">B1</option>
+                        <option value="B2">B2</option>
+                        <option value="C1">C1</option>
+                        <option value="C2">C2</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="reposLabel" for="beginDate"><strong>When can you begin?</strong></label>
+                    <input id="beginDate" type="date" name="startDate" required>
+                </div>
+                <div>
+                    <label for="skillsAndCourses"><strong>Technical Skills And Courses:</strong></label>
+                    <input id="skillsContent" class="textSkills" type="text" name="skillsCourses" minlength="10" maxlength="50" required>
+                </div>
+                <div>
+                    <label for="motivation"><strong>Write a short essay explaining why do you wish to participate in this program:</strong></label>
+                    <input id="motivationLet" class="textMotivate" type="text" name="joinReason" minlength="10" maxlength="50" required>
+                </div>
+                <div>
+                    <label for="studyFromHome"><strong>Study From Home:</strong></label>
+                    <input id="studyHome" class="homeStudyBox" type="checkbox" name="confirmStudyFromHome">
+                </div>
+                    
+                <button id="btnInsert" class="sbtButton" type="submit">Submit</button>
+            </fieldset>
+
+    </div>
+            <div>
+                <p>You can review all existing applications below:</p>
+                <a class="revealSubmissions" href="#browsingSection">Browse submissions</a>
+            </div>
+                          <!--////////////////////// BROWES APPLICATIONS  /////////////////////-->
+    <div class="hiddenSubmissions" id="browsingSection">
+            <table id="displayInfo" class="outputTable">
+                 <tr>
+                    <th>№</th>
+                    <th class="1">First name:</th>
+                    <th>Surname:</th> 
+                    <th>Email:</th>
+                    <th>Age:</th>
+                    <th>Phone Number:</th>
+                    <th>Correspondence method:</th>
+                    <th>English Level:</th>
+                    <th>Begin Date:</th>
+                    <th>Technical Skills and Courses:</th>
+                    <th>Motivational Letter:</th>
+                    <th>Work From Home:</th> 
+                </tr>
+            </table>
+    </div>
+    
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

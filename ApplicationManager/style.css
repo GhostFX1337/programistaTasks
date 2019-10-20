@@ -1,0 +1,26 @@
+body {
+    background: black;
+    font-family: 'Roboto Slab', serif;
+    color: white;
+}
+
+.container {
+    margin: 10% 35%;
+}
+
+.hidden {
+    display: none;   
+}
+
+/* //////////////// FORM /////////////////// */
+
+
+
+
+/* /////////////// BROWSE SECTION //////////////// */
+
+table {
+    margin: 10%;
+    padding: 10%;
+    border: solid 4px white;
+}
