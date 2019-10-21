@@ -13,3 +13,11 @@ Information is temporary stored into a array and it will be reset upon refresh.
 No additional setup is required.
 
 No packages need to be installed, simply run this application via browser. 
+
+
+IMPORTANT:
+
+If you are using the files submitted directly through Moodle, kindly perform the following changes:
+
+add main.js file to folder named "js"
+add style.css file to folder "stylesheets"
