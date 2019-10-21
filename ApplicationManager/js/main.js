@@ -154,7 +154,20 @@ function saveEditedSubmission (rowNumber){
         //splice udpated object in previous object place
         data.splice(rowNumber -1, 1, newSubmission);
         //add submission to browse section
-
+        var tableEdit = document.getElementById('displayInfo');
+        tableEdit.rows[rowNumber].cells[1].innerHTML = data[rowNumber -1].firstName;
+        tableEdit.rows[rowNumber].cells[2].innerHTML = data[rowNumber -1].surname;
+        tableEdit.rows[rowNumber].cells[3].innerHTML = data[rowNumber -1].email;
+        tableEdit.rows[rowNumber].cells[4].innerHTML = data[rowNumber -1].age;
+        tableEdit.rows[rowNumber].cells[5].innerHTML = data[rowNumber -1].phoneNumber;
+        tableEdit.rows[rowNumber].cells[6].innerHTML = data[rowNumber -1].choice;
+        tableEdit.rows[rowNumber].cells[7].innerHTML = data[rowNumber -1].englishLevel;
+        tableEdit.rows[rowNumber].cells[8].innerHTML = data[rowNumber -1].startDate;
+        tableEdit.rows[rowNumber].cells[9].innerHTML = data[rowNumber -1].skillsandCourses;
+        tableEdit.rows[rowNumber].cells[10].innerHTML = data[rowNumber -1].motivationalLetter;
+        tableEdit.rows[rowNumber].cells[11].innerHTML = data[rowNumber -1].homeStudy;
+        tableEdit.rows[rowNumber].cells[12].innerHTML = '<button id="btnEdit" onclick="editSubmission(' + (data.length - 1) + ') " class="sbtButton" style="display:inline;">Edit</button> <button id="btnSave" onclick="saveEditedSubmission(' + (data.length - 1) + ')" id="btnSave" class="sbtButton" style="display:none;">Save</button> <button id="btnCancel" onclick="cancelAction()" id="btnCancel" class="sbtButton" style="display:none"; margin-top:1em;">Cancel</button> '
+        tableEdit.rows[rowNumber].cells[13].innerHTML = '<button id="btnDelete" onclick="deleteSubmission(' + (data.length - 1) + ') " class="sbtButton" style="display:inline;">Delete</button>';
     }
 }; 
 
