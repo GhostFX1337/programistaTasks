@@ -23,23 +23,23 @@
             <fieldset>
                 <div>
                     <label class="reposLabel" for="firstName"><strong>First Name:</strong></label>
-                    <input value="Georgi" id="firstName" type="text" name="firstName" placeholder="Enter your name here:" required>
+                    <input id="firstName" type="text" name="firstName" placeholder="Enter your name here:" required>
                 </div>
                 <div>
                     <label class="reposLabel" for="surname"><strong>Surname:</strong></label>
-                    <input value="Tsvetkov" id="surname" type="text" name="surname" placeholder="Enter your surname here:" required>
+                    <input id="surname" type="text" name="surname" placeholder="Enter your surname here:" required>
                 </div>
                 <div>
                      <label class="reposLabel" for="email"><strong>Email:</strong></label>
-                    <input value="tsv@tsv.com" id="email" name="email" type="text" placeholder="Enter your email address here:" required>
+                    <input id="email" name="email" type="text" placeholder="Enter your email address here:" required>
                 </div>
                 <div>
                     <label class="reposLabel" for="age"><strong>Enter Your Age:</strong></label>
-                    <input value="30" id="age" type="number" name="age" min="18" max="99" placeholder="Your age:" required>
+                    <input id="age" type="number" name="age" min="18" max="99" placeholder="Your age:" required>
                 </div>
                 <div>
                     <label class="reposLabel" for="phoneNumber"><strong>Phone Number:</strong></label> 
-                    <input value="0888" id="gsm" type="text" name="phoneNumber" placeholder="Enter your phone number here:" required>
+                    <input id="gsm" type="text" name="phoneNumber" placeholder="Enter your phone number here:" required>
                 </div>
                 <div>
                     <label class="reposLabel" for="communicationPreference"><strong>Your Preferred Way Of Correspondence:</strong></label>
@@ -64,11 +64,11 @@
                 </div>
                 <div>
                     <label for="skillsAndCourses"><strong>Technical Skills And Courses:</strong></label>
-                    <input value="rgtrhrthjtrjhtjtydjtydjjtdj" id="skillsContent" class="textSkills" type="text" name="skillsCourses" minlength="10" maxlength="50" required>
+                    <input id="skillsContent" class="textSkills" type="text" name="skillsCourses" minlength="10" maxlength="50" required>
                 </div>
                 <div>
                     <label for="motivation"><strong>Write a short essay explaining why do you wish to participate in this program:</strong></label>
-                    <input value="rgtrhrthjtrjhtjtydjtydjjtdj" id="motivationLet" class="textMotivate" type="text" name="joinReason" minlength="10" maxlength="50" required>
+                    <input id="motivationLet" class="textMotivate" type="text" name="joinReason" minlength="10" maxlength="50" required>
                 </div>
                 <div>
                     <label for="studyFromHome"><strong>Study From Home:</strong></label>
@@ -87,7 +87,6 @@
     <div class="hiddenSubmissions" id="browsingSection">
             <table id="displayInfo" class="outputTable">
                  <tr>
-                    <th>№</th>
                     <th class="1">First name:</th>
                     <th>Surname:</th> 
                     <th>Email:</th>
